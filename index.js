@@ -43,13 +43,13 @@ app.command("/f1-pulse-bot-next-race", async ({ ack, respond }) => {
         const race = response.data.MRData.RaceTable.Races[0];
         
         await respond({ text: 
-            `🏁 ${race.raceName}
+`🏁 ${race.raceName}
 
-            📍 ${race.Circuit.circuitName}
-            🌎 ${race.Circuit.Location.locality}, ${race.Circuit.Location.country}
+📍 ${race.Circuit.circuitName}
+🌎 ${race.Circuit.Location.locality}, ${race.Circuit.Location.country}
 
-            📅 ${race.date}
-            🕒 ${race.time}`
+📅 ${race.date}
+🕒 ${race.time}`
         });
 
     } catch (err) {
@@ -67,7 +67,7 @@ app.command("/f1-pulse-bot-standings", async ({ ack, respond }) => {
         
         let message = "🏆 Current Driver Standings \n\n"
         
-        standings.slice(0, 5). forEach(driver =>{
+        standings.slice(0, 5).forEach(driver =>{
             message += `${driver.position}. ${driver.Driver.givenName} ${driver.Driver.familyName} - ${driver.points} pts\n`
 
         });
@@ -88,12 +88,11 @@ app.command("/f1-pulse-bot-random-driver", async ({ ack, respond }) => {
         const driver = drivers[Math.floor(Math.random() * drivers.length)];
 
         await respond({ text: 
-            `🏎️ ${driver.givenName} ${driver.familyName}
-            
-            🏳️ Nationality: ${driver.nationality}
-            🎂 Born: ${driver.dateOfBirth}
-            
-            `
+`🏎️ ${driver.givenName} ${driver.familyName}
+
+🏳️ Nationality: ${driver.nationality}
+🎂 Born: ${driver.dateOfBirth}
+`
         });
 
     } catch (err) {
